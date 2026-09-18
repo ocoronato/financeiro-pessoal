@@ -17,8 +17,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icons/*.png'],
       manifest: {
-        name: 'Financeiro Pessoal',
-        short_name: 'Financeiro',
+        name: 'SHADY',
+        short_name: 'SHADY',
         description: 'Controle financeiro pessoal simples, rápido e local.',
         theme_color: '#0a0a0e',
         background_color: '#0a0a0e',
