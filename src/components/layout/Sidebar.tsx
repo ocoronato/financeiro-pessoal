@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { Plus, Wallet2 } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { NAV_ITEMS } from './nav-items'
 import { Button } from '@/components/ui/button'
@@ -10,11 +10,10 @@ export function Sidebar() {
 
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-sidebar-border bg-sidebar px-4 py-6 md:flex">
-      <div className="mb-6 flex items-center gap-2.5 px-2">
-        <div className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-strong text-primary-foreground shadow-soft">
-          <Wallet2 className="size-[18px]" strokeWidth={2.25} />
-        </div>
-        <span className="text-lg font-semibold tracking-tight text-sidebar-foreground">Financeiro</span>
+      <div className="mb-6 flex items-center px-2">
+        <span className="bg-gradient-to-br from-primary to-primary-strong bg-clip-text text-2xl font-bold italic tracking-tight text-transparent">
+          SHADY
+        </span>
       </div>
 
       <Button className="mb-6 w-full" onClick={() => openCreate()}>
