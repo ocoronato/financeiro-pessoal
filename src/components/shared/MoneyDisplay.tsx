@@ -29,7 +29,7 @@ export function MoneyDisplay({ value, variant = 'default', size = 'md', showSign
   const sign = showSign && value > 0 ? '+' : ''
 
   return (
-    <span className={cn('tabular-nums', sizeClasses[size], colorClass, className)}>
+    <span className={cn('font-mono tabular-nums', sizeClasses[size], colorClass, className)}>
       {sign}
       {formatCurrency(value)}
     </span>

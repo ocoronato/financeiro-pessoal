@@ -1,10 +1,21 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@import '@fontsource/geist-sans/latin-400.css';
+@import '@fontsource/geist-sans/latin-500.css';
+@import '@fontsource/geist-sans/latin-600.css';
+@import '@fontsource/geist-sans/latin-700.css';
+@import '@fontsource/geist-mono/latin-400.css';
+@import '@fontsource/geist-mono/latin-500.css';
+@import '@fontsource/geist-mono/latin-600.css';
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --radius: 0.875rem;
+
+  --font-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
 
   --background: oklch(0.985 0.002 260);
   --foreground: oklch(0.2 0.02 260);
@@ -16,6 +27,7 @@
   --popover-foreground: oklch(0.2 0.02 260);
 
   --primary: oklch(0.54 0.13 165);
+  --primary-strong: oklch(0.4 0.11 168);
   --primary-foreground: oklch(0.99 0.005 165);
 
   --secondary: oklch(0.955 0.008 260);
@@ -41,6 +53,9 @@
   --sidebar: oklch(0.975 0.004 260);
   --sidebar-foreground: oklch(0.2 0.02 260);
   --sidebar-border: oklch(0.91 0.008 260);
+
+  --shadow-soft: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 10px 24px -8px rgb(15 23 42 / 0.10);
+  --shadow-elevated: 0 2px 4px 0 rgb(15 23 42 / 0.05), 0 16px 32px -12px rgb(15 23 42 / 0.16);
 }
 
 .dark {
@@ -54,6 +69,7 @@
   --popover-foreground: oklch(0.96 0.004 260);
 
   --primary: oklch(0.7 0.15 165);
+  --primary-strong: oklch(0.5 0.14 168);
   --primary-foreground: oklch(0.16 0.03 165);
 
   --secondary: oklch(0.27 0.015 260);
@@ -79,6 +95,9 @@
   --sidebar: oklch(0.2 0.015 260);
   --sidebar-foreground: oklch(0.96 0.004 260);
   --sidebar-border: oklch(1 0 0 / 8%);
+
+  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.2), 0 10px 24px -8px rgb(0 0 0 / 0.36);
+  --shadow-elevated: 0 2px 4px 0 rgb(0 0 0 / 0.24), 0 20px 40px -12px rgb(0 0 0 / 0.5);
 }
 
 @theme inline {
@@ -89,6 +108,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -114,6 +134,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-elevated: var(--shadow-elevated);
 }
 
 @layer base {
@@ -127,7 +153,7 @@
     color-scheme: dark;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overscroll-behavior-y: none;

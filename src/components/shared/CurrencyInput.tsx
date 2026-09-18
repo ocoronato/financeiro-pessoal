@@ -29,7 +29,7 @@ export function CurrencyInput({ value, onValueChange, className, ...props }: Cur
       placeholder="R$ 0,00"
       value={display}
       onChange={handleChange}
-      className={cn('tabular-nums', className)}
+      className={cn('font-mono tabular-nums', className)}
       {...props}
     />
   )
