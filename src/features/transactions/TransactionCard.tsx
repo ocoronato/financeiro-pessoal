@@ -63,12 +63,13 @@ export function TransactionCard({
             </span>
           )}
         </div>
-        <p className="truncate text-xs text-muted-foreground">
-          {isTransfer
-            ? `${account?.name ?? '—'} → ${toAccount?.name ?? '—'}`
-            : [category?.name, card ? card.name : account?.name].filter(Boolean).join(' · ')}
-          {' · '}
-          {formatDate(transaction.date)}
+        <p className="flex items-center gap-1 text-xs text-muted-foreground">
+          <span className="truncate">
+            {isTransfer
+              ? `${account?.name ?? '—'} → ${toAccount?.name ?? '—'}`
+              : [category?.name, card ? card.name : account?.name].filter(Boolean).join(' · ')}
+          </span>
+          <span className="shrink-0">· {formatDate(transaction.date)}</span>
         </p>
       </div>
 

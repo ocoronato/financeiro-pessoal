@@ -10,9 +10,9 @@ export function Sidebar() {
 
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-sidebar-border bg-sidebar px-4 py-6 md:flex">
-      <div className="mb-6 flex items-center gap-2 px-2">
-        <div className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-          <Wallet2 className="size-5" />
+      <div className="mb-6 flex items-center gap-2.5 px-2">
+        <div className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-strong text-primary-foreground shadow-soft">
+          <Wallet2 className="size-[18px]" strokeWidth={2.25} />
         </div>
         <span className="text-lg font-semibold tracking-tight text-sidebar-foreground">Financeiro</span>
       </div>
@@ -30,14 +30,21 @@ export function Sidebar() {
             end={item.to === '/'}
             className={({ isActive }) =>
               cn(
-                'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-sidebar-foreground/70 transition-colors',
+                'relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-sidebar-foreground/70 transition-colors',
                 'hover:bg-secondary hover:text-sidebar-foreground',
-                isActive && 'bg-secondary text-sidebar-foreground',
+                isActive && 'bg-secondary font-semibold text-sidebar-foreground',
               )
             }
           >
-            <item.icon className="size-[18px]" />
-            {item.label}
+            {({ isActive }) => (
+              <>
+                {isActive && (
+                  <span className="absolute inset-y-1.5 left-0 w-1 rounded-full bg-primary" aria-hidden="true" />
+                )}
+                <item.icon className="size-[18px]" strokeWidth={isActive ? 2.25 : 2} />
+                {item.label}
+              </>
+            )}
           </NavLink>
         ))}
       </nav>
