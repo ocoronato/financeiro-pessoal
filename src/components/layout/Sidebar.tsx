@@ -1,0 +1,48 @@
+import { NavLink } from 'react-router-dom'
+import { Plus, Wallet2 } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { NAV_ITEMS } from './nav-items'
+import { Button } from '@/components/ui/button'
+import { useTransactionDialog } from '@/features/transactions/TransactionDialogProvider'
+
+export function Sidebar() {
+  const { openCreate } = useTransactionDialog()
+
+  return (
+    <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-sidebar-border bg-sidebar px-4 py-6 md:flex">
+      <div className="mb-6 flex items-center gap-2 px-2">
+        <div className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+          <Wallet2 className="size-5" />
+        </div>
+        <span className="text-lg font-semibold tracking-tight text-sidebar-foreground">Financeiro</span>
+      </div>
+
+      <Button className="mb-6 w-full" onClick={() => openCreate()}>
+        <Plus className="size-4" />
+        Nova transação
+      </Button>
+
+      <nav className="flex flex-1 flex-col gap-1">
+        {NAV_ITEMS.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            end={item.to === '/'}
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-sidebar-foreground/70 transition-colors',
+                'hover:bg-secondary hover:text-sidebar-foreground',
+                isActive && 'bg-secondary text-sidebar-foreground',
+              )
+            }
+          >
+            <item.icon className="size-[18px]" />
+            {item.label}
+          </NavLink>
+        ))}
+      </nav>
+
+      <p className="px-2 text-xs text-muted-foreground">Seus dados ficam só neste dispositivo.</p>
+    </aside>
+  )
+}
