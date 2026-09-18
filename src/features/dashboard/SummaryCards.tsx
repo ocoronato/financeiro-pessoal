@@ -52,10 +52,10 @@ export function SummaryCards({
 }: SummaryCardsProps) {
   return (
     <div className="space-y-4">
-      <Card className="relative overflow-hidden border-none bg-gradient-to-br from-primary to-primary-strong p-6 text-primary-foreground shadow-elevated">
+      <Card className="relative overflow-hidden border-none bg-gradient-to-br from-neutral-950 via-neutral-950 to-primary p-6 text-primary-foreground shadow-elevated">
         <div
-          className="pointer-events-none absolute inset-0 opacity-40"
-          style={{ background: 'radial-gradient(240px 140px at 100% 0%, rgb(255 255 255 / 0.16) 0%, transparent 70%)' }}
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{ background: 'radial-gradient(280px 160px at 100% 0%, var(--color-primary) 0%, transparent 70%)' }}
         />
         <div className="relative flex items-center gap-2 opacity-90">
           <Wallet className="size-4" />
